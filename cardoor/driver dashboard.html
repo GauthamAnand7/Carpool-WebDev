@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+          height: 600px;
+          widows: 100%;
+        }
+      </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--=== Favicon ===-->
+
+    <title>Cardoor - Car Rental HTML Template</title>
+
+    <!--=== Bootstrap CSS ===-->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!--=== Slicknav CSS ===-->
+    <link href="assets/css/plugins/slicknav.min.css" rel="stylesheet">
+    <!--=== Magnific Popup CSS ===-->
+    <link href="assets/css/plugins/magnific-popup.css" rel="stylesheet">
+    <!--=== Owl Carousel CSS ===-->
+    <link href="assets/css/plugins/owl.carousel.min.css" rel="stylesheet">
+    <!--=== Gijgo CSS ===-->
+    <link href="assets/css/plugins/gijgo.css" rel="stylesheet">
+    <!--=== FontAwesome CSS ===-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet">
+    <!--=== Theme Reset CSS ===-->
+    <link href="assets/css/reset.css" rel="stylesheet">
+    <!--=== Main Style CSS ===-->
+    <link href="style.css" rel="stylesheet">
+    <!--=== Responsive CSS ===-->
+    <link href="assets/css/responsive.css" rel="stylesheet">
+
+
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<body class="loader-active">    
+    <!--== Header Area Start ==-->
+    <header id="header-area" class="fixed-top">
+        <!--== Header Bottom Start ==-->
+        <div id="header-bottom">
+            <div class="container">
+                <div class="row">
+                    <!--== Logo Start ==-->
+                    <div class="col-lg-4">
+                        <a href="index.html" class="logo">
+                            <img src="assets/img/logo.png" alt="JSOFT">
+                        </a>
+                    </div>
+                    <!--== Logo End ==-->
+
+                    <!--== Main Menu Start ==-->
+                    <div class="col-lg-8 d-none d-xl-block">
+                        <nav class="mainmenu alignright">
+                            <ul>
+                                <li class="active"><a href="./index.html">Home</a></li>
+                                <li><a href="./index.html">Logout</a></li>
+                                <li><a href="./login.html">Passenger Login</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!--== Main Menu End ==-->
+                </div>
+            </div>
+        </div>
+        <!--== Header Bottom End ==-->
+    </header>
+    <!--== Header Area End ==-->
+
+    <!--== Page Title Area Start ==-->
+    <section id="page-title-area" class="section-padding overlay">
+        <div class="container">
+            <div class="row">
+                <!-- Page Title Start -->
+                <div class="col-lg-12">
+                    <div class="section-title  text-center">
+                        <h2>Driver Dashboard</h2>
+                        <span class="title-line"><i class="fa fa-car"></i></span>
+                        <p>Your Dashboard to start a trip!</p>
+                    </div>
+                </div>
+                <!-- Page Title End -->
+            </div>
+        </div>
+    </section>
+    <!--== Page Title Area End ==-->
+
+    <!--== Contact Page Area Start ==-->
+    <div class="contact-page-wrao section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 m-auto">
+                    <div class="contact-form">
+                        <form action="end_dtrip.php" method="POST">                                
+                            <br></br>
+                                <div>
+                                    <h3>CURRENT TRIPS</h3>
+                                </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="website-input">
+                                        <label>Source</label><input type="text" name = "sourceAddress" placeholder="Source" id = "sourceAddress">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="subject-input">
+                                       <label>Destination</label> <input type="text" name="destinationAddress" placeholder="Destination" id = "destinationAddress">
+                                    </div>
+                                </div>
+                            </div>
+                            <br></br>
+                            <div class="input-submit">
+                                <button type="button" id = "submitDetails">Submit Details</button>
+                            </div>
+                            <div id="result"></div>
+                            <div class="input-submit">
+                                <button type="submit" name = "submitLocation" id = "end">Cancel Current trip</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="height:100%; width:100%;">
+    <div id="map"></div>
+    </div>
+
+
+
+    
+    <!--== Contact Page Area End ==-->
+    <!--=======================Javascript============================-->
+    <!--=== Jquery Min Js ===-->
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <!--=== Jquery Migrate Min Js ===-->
+    <script src="assets/js/jquery-migrate.min.js"></script>
+    <!--=== Popper Min Js ===-->
+    <script src="assets/js/popper.min.js"></script>
+    <!--=== Bootstrap Min Js ===-->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!--=== Gijgo Min Js ===-->
+    <script src="assets/js/plugins/gijgo.js"></script>
+    <!--=== Vegas Min Js ===-->
+    <script src="assets/js/plugins/vegas.min.js"></script>
+    <!--=== Isotope Min Js ===-->
+    <script src="assets/js/plugins/isotope.min.js"></script>
+    <!--=== Owl Caousel Min Js ===-->
+    <script src="assets/js/plugins/owl.carousel.min.js"></script>
+    <!--=== Waypoint Min Js ===-->
+    <script src="assets/js/plugins/waypoints.min.js"></script>
+    <!--=== CounTotop Min Js ===-->
+    <script src="assets/js/plugins/counterup.min.js"></script>
+    <!--=== YtPlayer Min Js ===-->
+    <script src="assets/js/plugins/mb.YTPlayer.js"></script>
+    <!--=== Magnific Popup Min Js ===-->
+    <script src="assets/js/plugins/magnific-popup.min.js"></script>
+    <!--=== Slicknav Min Js ===-->
+    <script src="assets/js/plugins/slicknav.min.js"></script>
+
+    <!--=== Mian Js ===-->
+    <script src="assets/js/main.js"></script>
+
+    <!-- New Code Section-->
+    <script>
+        function initMap() {
+            var directionsService = new google.maps.DirectionsService();
+            var directionsRenderer = new google.maps.DirectionsRenderer();
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 7,
+                center: {lat: 12.966297599999999, lng: 77.5749632},
+            });
+            directionsRenderer.setMap(map);
+    
+            function incalc(){
+                calculateAndDisplayRoute(directionsService, directionsRenderer);
+                get_latlong();  
+            };
+    
+            function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+                //console.log(directionsRenderer);
+                //console.log(directionsService);
+            directionsService.route(
+                {
+                    origin: {query: document.getElementById('sourceAddress').value},
+                    destination: {query: document.getElementById('destinationAddress').value},
+                    travelMode: 'DRIVING'
+                },
+                function(response, status) {
+                    if (status === 'OK') {
+                    directionsRenderer.setDirections(response);
+                    } else {
+                    window.alert('Directions request failed due to ' + status);
+                    }
+            
+            });
+    }
+    document.getElementById('submitDetails').onclick=incalc;
+
+}
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="latLon.js"></script> 
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsZe9HkLYb4iKEYP_PzwSTSnsC7qp0WG8&callback=initMap">
+    </script>
+    <!--End of New Code section-->
+</body>
+</html>

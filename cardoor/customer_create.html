@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Login Form Design</title>
+    <link rel="stylesheet" type="text/css" href="./customer_create.css">
+<body>
+    <div class="loginbox">
+    <img src="images\avatar.png" class="avatar">
+        <h1>Create Account</h1>
+        <form action="register_customer.php" method="post">
+            <div>
+                <p>Email</p>
+                <input type="email" id="email" name="email" class='form-control' placeholder="Enter Email" required>
+                <p>Phone Number</p>
+                <input type="tel" id="mobile" name="mobile" class='form-control' placeholder="Enter phone number" size="10" pattern="[6-9]{1}[0-9]{9}" title="Enter a 10 digit number" required>
+                <p>Name</p>
+                <input type="text" id="uname" name="uname" placeholder="Enter Name" required>
+                <p>Password</p>
+                <input type="password" id="pwd" name="pwd" class='form-control' placeholder="Enter Password" minlength="8" required>
+            </div>
+            <br></br>
+            <div style="text-align: center;">
+                <input type="submit" name="submit" value="Create Account">
+            </div>
+        </form>
+        
+    </div>
+
+</body>
+</head>
+</html>

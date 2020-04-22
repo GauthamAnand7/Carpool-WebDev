@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>Login Form Design</title>
+    <link rel="stylesheet" type="text/css" href="css\create.css">
+<body>
+    <div class="loginbox">
+    <img src="images\avatar.png" class="avatar">
+        <h1>Create Account</h1>
+        <form action="/cardoor/register.php" method="post" enctype="multipart/form-data">
+            <div style="display: inline-block;">
+                <p>Email</p>
+                <input type="email" id="email" name="email" class='form-control' placeholder="Enter Email" required>
+                <p>Phone Number</p>
+                <input type="tel" id="mobile" name="mobile" class='form-control' placeholder="Enter phone number" size="10" pattern="[6-9]{1}[0-9]{9}" title="Enter a 10 digit number" required>
+                <p>Address</p>
+                <input type="text" id="address" name="address" placeholder="Enter Address" required>
+                <p>Lisense ID</p>
+                <input type="text" id="lnum" name="lnum" class='form-control' placeholder="Enter Lisense ID" required>
+                <br></br>
+                <label for="img">Lisence image:</label>
+                <input type="file" id="limg" name="limg"  accept="image/*">
+            </div>
+            <div style="float: right">
+                <p>Name</p>
+                <input type="text" id="uname" name="uname" placeholder="Enter Name" required>
+                <p>Password</p>
+                <input type="password" id="pwd" name="pwd" class='form-control' placeholder="Enter Password" minlength="8" required>
+                <p>Vehicle number</p>
+                <input type="text" id="vnum" name="vnum" class='form-control' placeholder="Enter Vehicle number" minlength="9" maxlength="10" required>
+                <br></br>
+            </div>
+            <br></br>
+            <div style="display: block; text-align: center;">
+                <input type="submit" name="Submit" value="Create Account">
+            </div>
+        </form>
+        
+    </div>
+
+</body>
+</head>
+</html>

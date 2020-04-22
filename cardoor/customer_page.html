@@ -1,0 +1,217 @@
+<html>
+    <head>
+      
+      
+       <!--== Contact Page Area End ==-->
+    <!--=======================Javascript============================-->
+    <!--=== Jquery Min Js ===-->
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <!--=== Jquery Migrate Min Js ===-->
+    <script src="assets/js/jquery-migrate.min.js"></script>
+    <!--=== Popper Min Js ===-->
+    <script src="assets/js/popper.min.js"></script>
+    <!--=== Bootstrap Min Js ===-->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!--=== Gijgo Min Js ===-->
+    <script src="assets/js/plugins/gijgo.js"></script>
+    <!--=== Vegas Min Js ===-->
+    <script src="assets/js/plugins/vegas.min.js"></script>
+    <!--=== Isotope Min Js ===-->
+    <script src="assets/js/plugins/isotope.min.js"></script>
+    <!--=== Owl Caousel Min Js ===-->
+    <script src="assets/js/plugins/owl.carousel.min.js"></script>
+    <!--=== Waypoint Min Js ===-->
+    <script src="assets/js/plugins/waypoints.min.js"></script>
+    <!--=== CounTotop Min Js ===-->
+    <script src="assets/js/plugins/counterup.min.js"></script>
+    <!--=== YtPlayer Min Js ===-->
+    <script src="assets/js/plugins/mb.YTPlayer.js"></script>
+    <!--=== Magnific Popup Min Js ===-->
+    <script src="assets/js/plugins/magnific-popup.min.js"></script>
+    <!--=== Slicknav Min Js ===-->
+    <script src="assets/js/plugins/slicknav.min.js"></script>
+
+    <!--=== Mian Js ===-->
+    <script src="assets/js/main.js"></script>
+
+    <!-- New Code Section-->
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet"> 
+        <link href="assets/css/plugins/slicknav.min.css" rel="stylesheet">
+        <link href="assets/css/plugins/owl.carousel.min.css" rel="stylesheet">
+        <!--=== Gijgo CSS ===-->
+        <link href="assets/css/plugins/gijgo.css" rel="stylesheet">
+        <!--=== FontAwesome CSS ===-->
+        <link href="assets/css/font-awesome.css" rel="stylesheet">
+        <!--=== Theme Reset CSS ===-->
+        <!--=== Main Style CSS ===-->
+        <link href="style.css" rel="stylesheet">
+        <!--=== Responsive CSS ===-->
+        <link href="assets/css/responsive.css" rel="stylesheet">
+    
+        <link href = "css/login.css" rel="stylesheet">                                                           
+     <!--   <script>
+            var x = document.getElementById("textbox1");
+            function getLocation() {
+              if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+              } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+              }
+            }
+            
+            function showPosition(position) {
+              x.innerHTML = "Latitude: " + position.coords.latitude +
+              "<br>Longitude: " + position.coords.longitude;
+            }
+            </script>   !-->
+    </head>
+        <body class="loader-active">
+          <!--== Header Area Start ==-->
+    <header id="header-area" class="fixed-top">
+      <!--== Header Bottom Start ==-->
+      <div id="header-bottom">
+          <div class="container">
+              <div class="row">
+                  <!--== Logo Start ==-->
+                  <div class="col-lg-4">
+                      <a href="index.html" class="logo">
+                          <img src="assets/img/logo.png" alt="JSOFT">
+                      </a>
+                  </div>
+                  <!--== Logo End ==-->
+
+                  <!--== Main Menu Start ==-->
+                  <div class="col-lg-8 d-none d-xl-block">
+                      <nav class="mainmenu alignright">
+                          <ul>
+                              <li class="active"><a href="./index.html">Home</a></li>
+                              <li><a href="./index.html">Logout</a></li>
+                              <li><a href="./login_driver.html">Driver Login</a></li>
+                          </ul>
+                      </nav>
+                  </div>
+                  <!--== Main Menu End ==-->
+              </div>
+          </div>
+      </div>
+      <!--== Header Bottom End ==-->
+  </header>
+  <!--== Header Area End ==-->
+              <div class = "loginbox" style="width: 400px; height: auto;" >
+                  <li>Source address <input type="text" name="source" id="sourceAddress"></li>
+                  <li> Destination address<input type="text" name="destination" id="destinationAddress"></li>
+                  <br></br>
+                  <div>
+                  <button style="text-align: center;    
+                  top: 80%;
+                  left: 50%;
+                  background: #ffd000;
+                  color: #000;
+                  position: absolute;
+                  transform: translate(-50%,-50%);
+                  box-sizing: border-box;
+                  border-radius: 20px;"type = "button" name="search" class="btn btn-primary ali" onclick="get_latlong()">Search</button>
+                  </div>
+                  <div id="result"></div>
+                  </div>
+              
+              <!-- Footer -->
+           <div class ="container-fluid" style="
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: black;
+            color: white;
+            text-align: center;
+          ">
+           </div>
+          <script>
+          function get_latlong()
+          {
+            var srclat;
+            var srclong;
+            var destlat ;
+            var destlong
+            sourceAddress=document.getElementById("sourceAddress").value;
+            axios.get("https://maps.googleapis.com/maps/api/geocode/json",{
+              params:{
+                address:sourceAddress,
+                key:"AIzaSyBsZe9HkLYb4iKEYP_PzwSTSnsC7qp0WG8"
+              }
+            }).then(function(response)
+            {
+             // var jsonObj=JSON.parse(response);
+              console.log(typeof(response)); 
+               srclat = response.data.results[0].geometry.location.lat;
+               srclong = response.data.results[0].geometry.location.lng;
+               console.log(srclat);
+               console.log(srclong);
+              var latitudeinformation = response.data.results[0].geometry.location.lat+" "+response.data.results[0].geometry.location.lng;
+             // var latitudeLongitude =`<ul class ="list-group"><li class= "list-group-item">${latitudeinformation}</li>`;
+            //  document.getElementById("listItems").innerHTML = latitudeLongitude;
+
+            //  console.log(response["results"]["geometry"]["location"]["lat"]);
+            //  console.log(response["results"]["geometry"]["location"]["lng"]);
+            })
+            .catch(function(error)
+            {
+              console.log(error);
+            })
+            destinationAddress=document.getElementById("destinationAddress").value;
+            axios.get("https://maps.googleapis.com/maps/api/geocode/json",{
+              params:{
+                address:destinationAddress,
+                key:"AIzaSyBsZe9HkLYb4iKEYP_PzwSTSnsC7qp0WG8"
+              }
+            }).then(function(response)
+            {
+               destlat = response.data.results[0].geometry.location.lat;
+               destlong = response.data.results[0].geometry.location.lng;
+              var latitudeinformation = response.data.results[0].geometry.location.lat+" "+response.data.results[0].geometry.location.lng;
+              var latitudeLongitude =`<li class= "list-group-item">${latitudeinformation}</li>`;
+              var data={
+              srclat : srclat,
+              srclong: srclong,
+              destlat: destlat,
+              destlong: destlong 
+            };
+            console.log(data);
+             // console.log(response["results"]["geometry"]["location"]["lng"]);
+             $.post("customer_page.php",data,function(value){
+              document.getElementById("result").innerHTML="<br><br><br>"+"<h1>"+value+"<h1>";
+             });
+            })
+            .catch(function(error)
+            {
+              console.log(error);
+            })
+           
+        //    $.post("customer_page.php",data);
+          }
+          function distance(lat1, lon1, lat2, lon2, unit) {
+                  if ((lat1 == lat2) && (lon1 == lon2)) {
+                    return 0;
+                  }
+                  else {
+                    var radlat1 = Math.PI * lat1/180;
+                    var radlat2 = Math.PI * lat2/180;
+                    var theta = lon1-lon2;
+                    var radtheta = Math.PI * theta/180;
+                    var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+                    if (dist > 1) {
+                      dist = 1;
+                    }
+                    dist = Math.acos(dist);
+                    dist = dist * 180/Math.PI;
+                    dist = dist * 60 * 1.1515;
+                    if (unit=="K") { dist = dist * 1.609344 }
+                    if (unit=="N") { dist = dist * 0.8684 }
+                    return dist;
+                  }
+                }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>        </body>
+
+ </html>
